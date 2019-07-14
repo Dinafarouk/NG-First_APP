@@ -1,0 +1,33 @@
+<p>favorite works!</p>
+
+
+
+<!-- 
+<span [class]="glyphicon" 
+[class.glyphicon-heart]="isfavorite" 
+[class.glyphicon-heart-empty]="!isfavorite" 
+(click)="onFavoriteClick()"></span> -->
+
+<!-- <h3 *ngIf="isfavorite;" class=" not-loved"(click)="onFavoriteClick()">LOVE ME</h3>
+    
+    <h3 class=" loved"(click)="onFavoriteClick()"  *ngIf="!isfavorite;" >DON'T LOVE ME</h3> -->
+
+
+<h3 [ngClass]="{'loved': isfavorite, 'not-loved': !isfavorite}" (click)="onFavoriteClick()">
+    <ng-container *ngIf="isfavorite; else elseTemplate">
+            LOVE ME
+    </ng-container>
+    <ng-template #elseTemplate>
+            DON'T LOVE ME
+    </ng-template>
+    
+</h3>
+<h3 [ngClass]="{'loved': isfavorite, 'not-loved': !isfavorite}" [ngClass]="isfavorite ? 'not-loved':  'loved'" (click)="onFavoriteClick()">
+    <ng-container *ngIf="isfavorite; else elseTemplate">
+            LOVE ME
+    </ng-container>
+    <ng-template #elseTemplate>
+            DON'T LOVE ME
+    </ng-template>
+    
+</h3>
