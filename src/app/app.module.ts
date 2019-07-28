@@ -8,22 +8,40 @@ import { DBservices } from './my-first-comp/db.services';
 import { CourseComponent } from './course/course.component';
 import { from } from 'rxjs';
 import { FavoriteComponent } from './favorite/favorite.component';
+import { DinaComponent } from './dina/dina.component';
+import { SummaryPipe } from './summary.pipe';
+import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { CustomFormsModule } from 'ng2-validation'
+import {bootstrap}
 
 @NgModule({
   declarations: [
     AppComponent,
     MyFirstCompComponent,
     CourseComponent,
-    FavoriteComponent
+    FavoriteComponent,
+    DinaComponent,
+    SummaryPipe,
+    LoginComponent
+
   ],
+
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    [BrowserModule,
+       FormsModule,
+    CustomFormsModule
   ],
+
   providers: [
     DBservices,
     ItshareApiService
+    
   ],
+
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }

@@ -1,0 +1,46 @@
+<form [formGroup]="from">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" name="email" ngModel #email="" required(change)="logObj(email)"
+       minlength="10" maxlength="15"
+      pattern="dina@blueline.com" class="form-control" formControlName=email 
+      id="email" placeholder="Enter email"> 
+  
+
+<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+
+      <div *ngIf="email.touched && email.invalid" class="alert alert-danger" >
+          please Enter Your Email Address 
+        </div>
+    </div>
+
+            <!-- <div *ngIf="email.errors.required"> 
+              please Enter Your Email Address
+            </div>   -->
+            <!-- <div *ngIf="email.errors.minlength"> Min Lenght is {{email.errors.minlength.requiredLenght}}</div>
+            <div *ngIf="email.errors.pattern"> invalid pattern</div>      -->
+            <!-- <div *ngIf="email.errors.pattern"> Max Len 15</div>  -->
+     
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="text" class="form-control" formControlName="password" id="exampleInputPassword1" placeholder="Password">
+    </div>
+
+    <div *ngIf="password.touched && email.password" class="alert alert-danger" >
+      <div *ngIf="password.errors.noSpaceAllowed" class="alert alert-danger">No Space permitted</div>
+        please Enter Your password
+      </div>
+
+
+    <!-- <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>  -->
+
+    <div class="form-group">
+
+      <input type="text" formControlName="age"/>
+      <p *ngIf="age.errors?.range">error message</p>
+    </div>
+
+  </form>
